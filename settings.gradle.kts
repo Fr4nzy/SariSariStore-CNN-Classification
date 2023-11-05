@@ -13,6 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SariSariStorePOS"
+rootProject.name = "SariSariStore-CNN-Classification"
 include(":app")
- 
