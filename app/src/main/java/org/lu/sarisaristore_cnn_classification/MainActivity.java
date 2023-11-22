@@ -23,7 +23,9 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Objects;
 
+/** @noinspection ALL*/
 public class MainActivity extends AppCompatActivity {
 
     Button camera, gallery;
@@ -134,9 +136,9 @@ public class MainActivity extends AppCompatActivity {
                     classifyImage(image); // This proceeds to resize it
                 }
             } else {
-                Uri dat = data.getData();
+                Uri dat = Objects.requireNonNull(data).getData();
                 if (dat != null) {
-                    Bitmap image = null;
+                    Bitmap image;
                     try {
                         image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), dat);
                         imgview.setImageBitmap(image); // This handles the image in the gallery
